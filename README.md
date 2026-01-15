@@ -1,4 +1,5 @@
 # Modifications
+Translated the README from russian to english.
 
 # MinEspSDK (meSDK)
 Minimalist SDK on ESP8266ex v1.5.2
