@@ -1,32 +1,24 @@
+# Modifications
+
 # MinEspSDK (meSDK)
 Minimalist SDK on ESP8266ex v1.5.2
 ---
 
-A complete set of Wi-Fi and [LwIP](http://savannah.nongnu.org/projects/lwip/) functions.<br>
-Имеет полный набор функций работы с WiFi и UDP/TCP (LwIP ver1.4.0).<br>
-Данная сборка не содержит espconn и SSL.<br>
-Проектируется для работы с датчиками и будет содержать расширения для быстрого<br> 
-старта после deep-sleep с возможностями управления дальнейшей загрузки SDK или<br> 
-опроса датчиков и нового перехода в режим deep-sleep.<br>
-В целях экономии питания, время от просыпания после deep-sleep до старта опроса<br> 
-датчиков и для принятия решения повторного засыпания или загрузки полного SDK<br>
-для коммуникации и передачи накопленных данных будет составлять 30..40 мс.<br>  
-В текщей версии, при стандартных настройках по умолчанию, после события подачи<br>
-питания, reset или deep-sleep соединение по TCP при фиксированном ip модуля в<br> 
-режиме STATION к модулю в режиме SOFTAP устанавливается примерно не более чем<br> 
-через 540 мс. Основное время занимает инициализации SDK в части WiFi.<br>
-Далее полудуплексный трафик TCP составляет более 1-го Мегабайта в секунду.<br>    
+A complete set of Wi-Fi and [LwIP](http://savannah.nongnu.org/projects/lwip/) functions.<br><br>
+It has a full set of functions for working with WiFi and UDP/TCP (LwIP ver1.4.0). This build does not contain espconn and SSL. It is designed to work with sensors and will include extensions for quick startup after deep-sleep with the ability to control further SDK loading or polling of sensors and a new transition to deep-sleep mode. In order to save power, the time from waking up after deep-sleep to the start of polling sensors and making a decision to go back to sleep or load the full SDK for communication and transmission of accumulated data will be 30-40 ms.
+
+In the current version, with standard default settings, after a power-on, reset, or deep-sleep event, a TCP connection between a module in STATION mode with a fixed IP address and a module in SOFTAP mode is established in approximately no more than 540 ms. The main time is taken up by the SDK initialization in the WiFi part. Further, the half-duplex TCP traffic is more than 1 Megabyte per second.  
 
 From [Espressif SDK](http://bbs.espressif.com/) ver 1.5.2 used only:<br> 
-libpp.a, libwpa.a, libcrypto.a, libnet80211.a, parts libphy.a, user_interface.o<br>
-Из [Espressif SDK](http://bbs.espressif.com/) ver 1.5.2 используются только описанные части.<br>
-Остальные части даны с исходными кодами.<br>
+libpp.a, libwpa.a, libcrypto.a, libnet80211.a, parts libphy.a, user_interface.o<br><br>
+Only the described parts from [Espressif SDK](http://bbs.espressif.com/) ver 1.5.2 are used.<br>
+The remaining parts are provided with source code.<br>
 LwIP based on [Open source LWIP for ESP_IOT_SDK_V1.4.0](http://bbs.espressif.com/viewtopic.php?f=46&t=1221).<br>
 
 Supported options 48 kbytes IRAM.<br>
 Supported '[Rapid Loader](https://github.com/pvvx/Rapid_Loader/)' and Flash 512 кbytes - 16 Mbytes.<br>
-Поддержка расширенной памяти IRAM в 48 килобайт (опция USE_MAX_IRAM 48),<br>
-Flash от 512 килобайт до 16 Мегабайт и ускоряющего загрузку SDK 'лоадера'.<br>
+Support for extended IRAM memory of 48 kilobytes (USE_MAX_IRAM 48 option),
+Flash memory from 512 kilobytes to 16 megabytes, and an SDK 'loader' for faster booting.
 
 Free IRAM : 12 or 28 kbytes (option 48k IRAM)<br>
 Free Heap : 55 kbytes<br>
@@ -37,17 +29,17 @@ Options programming Flash:<br>
 SPI_SPEED: 40MHz or 80MHz.<br>
 SPI_MODE: QIO only.<br>
 FLASH_SIZE: Always set the size to 512 KB flash.<br>
-			Automatic determination of the real size of the flash.<br>
-При заливке прошивки в модуль всегда устанавливайте размер Flash в 512 килобайт.<br> 
-Реальный размер Flash определяется автоматически во время старта SDK.<br> 
+			Automatic determination of the real size of the flash.
+When flashing the firmware to the module, always set the Flash size to 512 kilobytes.
+The actual Flash size is determined automatically during SDK startup.
 
-Для компиляции SDK используется [Unofficial Developer Kit](http://esp8266.ru/forum/forums/devkit/).<br>
+The [Unofficial Developer Kit](http://esp8266.ru/forum/forums/devkit/) is used to compile the SDK.<br>
 
-В Eclipse заданы 3 опции Manage Configurations:<br>
-1. AutoMake (собрать проект для прошивки, используются установки в Eclipse)<br>
-2. CreateLib (собрать библиотеку libsdk.a, используются установки в Eclipse)<br>
-3. Default (собрать проект для прошивки, используя makefile)<br>
+Three options are set in Eclipse's Manage Configurations:<br>
+1. AutoMake (build the project for flashing, using Eclipse settings)<br>
+2. CreateLib (build the libsdk.a library, using Eclipse settings)<br>
+3. Default (build the project for flashing, using the makefile)<br>
 
-Полный комплект для сборки проекта с помощью SDK библиотеки:<br>
-libsdk.a + [libmicroc.a](https://github.com/anakod/esp_microc) и include<br>     
+The complete set for building the project using the SDK library includes:<br>
+libsdk.a + [libmicroc.a](https://github.com/anakod/esp_microc) and include<br>     
 
